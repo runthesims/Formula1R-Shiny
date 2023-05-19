@@ -1,4 +1,4 @@
-FROM rocker/r-base:latest
+FROM rocker/tidyverse:latest
 
 ## update system libraries
 RUN apt-get update && \
@@ -18,4 +18,4 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     libssl-dev \
     curl
 
-RUN R -e "install.packages(c('plyr', 'dplyr', 'dbplyr', 'DT', 'DBI', 'RPostgres', 'shiny', 'shinycssloaders', 'shinyWidgets', 'shinydashboard', 'shinyjs', 'glue', 'reactablefmtr', 'tidyverse', 'readr', 'htmltools', 'sqldf'), repos='http://cran.rstudio.com/', dependencies = T)"
+RUN R -e "install.packages(c('DBI', 'RPostgres', 'shiny', 'shinycssloaders', 'shinyWidgets', 'shinydashboard', 'shinyjs', 'glue', 'reactablefmtr', 'htmltools', 'sqldf'), repos='http://cran.rstudio.com/', dependencies = T)"
