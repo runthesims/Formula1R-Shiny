@@ -20,3 +20,6 @@ The Docker image installs the following R packages:
 - `reactablefmtr`
 - `htmltools`
 - `sqldf`
+- `remotes`
+
+`reactablefmtr` is installed from its public GitHub repository because it is not currently available from CRAN for the R version used by the base image.
