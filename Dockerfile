@@ -16,6 +16,9 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     unixodbc-dev \
     libcurl4-openssl-dev \
     libssl-dev \
+    libxt6 \
     curl
 
-RUN R -e "install.packages(c('DBI', 'RPostgres', 'shiny', 'shinycssloaders', 'shinyWidgets', 'shinydashboard', 'shinyjs', 'glue', 'reactablefmtr', 'htmltools', 'sqldf'), repos='http://cran.rstudio.com/', dependencies = T)"
+RUN R -e "install.packages(c('DBI', 'RPostgres', 'pool', 'shiny', 'shinycssloaders', 'shinyWidgets', 'shinydashboard', 'shinyjs', 'glue', 'htmltools', 'sqldf', 'remotes'), repos='https://cloud.r-project.org', dependencies = T)"
+
+RUN R -e "remotes::install_github('kcuilla/reactablefmtr', dependencies = c('Depends', 'Imports'), upgrade = 'never'); library(reactablefmtr)"
